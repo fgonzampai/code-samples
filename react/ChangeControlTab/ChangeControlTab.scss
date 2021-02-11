@@ -1,0 +1,46 @@
+.change_control_container {
+  width: 100%;
+  text-align: center;
+  iframe {
+    margin-top: 20px;
+    border-width: 0px;
+    border-style: unset;
+    border-color: white;
+    border-image: unset;
+    border: 2px solid #e0e0e0;
+    padding: 30px 20px;
+  }
+}
+
+.change_control_not_found,
+.change_control_title {
+  width: 100%;
+  text-align: center;
+  p {
+    font-size: 20px;
+    font-family: 'Lato Light';
+    color: #000;
+    font-weight: 300;
+  }
+}
+.change_control_title {
+  margin: 40px 0 30px 0;
+}
+.change_control_not_found {
+  margin: 40px;
+}
+
+.loading {
+  display: none;
+}
+.status_up_to_date {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Lato Light';
+  color: #000;
+  font-weight: 300;
+}
+.change_control_status_count {
+  color: #ff5a1f;
+}

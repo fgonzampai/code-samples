@@ -1,0 +1,181 @@
+@import 'style/mixins.scss';
+@import '~@indeed/ifl-primitives/build/janus/scss/colors';
+
+$form-height: 85vh;
+$field-separation: 24px;
+$line-color: lightgray;
+$line-thick: 2px;
+$left-padding: 16px;
+$font-size1: 12px;
+$font-size2: 14px;
+$font-size3: 16px;
+$edited-color: #fa6400;
+$label-color: $colors-neutral-1000;
+$placeholder-color: #767676;
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  height: $form-height;
+
+  .form_body {
+    flex-grow: 1;
+    padding: 0px 11px $left-padding $left-padding;
+    overflow-y: scroll;
+  }
+
+  .form_item {
+    :global(.icl-Checkbox-label),
+    :global(.icl-Textarea-control) {
+      @include neue-regular($font-size1);
+      color: $label-color;
+    }
+    textarea {
+      @include neue-regular($font-size3);
+    }
+    select {
+      @include neue-regular($font-size3);
+    }
+  }
+
+  .form_header {
+    position: relative;
+    height: $left-padding;
+    display: flex;
+    align-items: center;
+    padding: $field-separation $left-padding;
+    border-bottom: $line-thick solid $line-color;
+    @include neue-bold($font-size2);
+    button {
+      margin-left: auto;
+    }
+  }
+
+  .form_footer {
+    border-top: $line-thick solid $line-color;
+    padding: $left-padding $field-separation;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    span {
+      margin-right: auto;
+      color: blue;
+      @include neue-bold($font-size3);
+    }
+    span[role='textbox'] {
+      @include neue-regular($font-size3);
+      color: black;
+      margin-right: 0;
+    }
+    :global(.icl-Button) {
+      margin: 0 0 0 $field-separation;
+      width: 120px;
+    }
+    & > span > div {
+      margin-bottom: 0;
+      & > a {
+        font-weight: 700;
+      }
+    }
+    .report_problem {
+      position: absolute;
+      top: -450px;
+      left: 200px;
+      color: black;
+      :global(.Int-CalloutMenu-colorBar:before) {
+        margin-top: 26.2rem;
+        margin-left: 1rem;
+      }
+    }
+    .first_footer_button {
+      margin-left: 10px;
+      margin-right: 24px;
+    }
+  }
+}
+
+.label {
+  margin: $field-separation 0 5px 0;
+  display: flex;
+  align-items: center;
+  color: $label-color;
+  @include neue-bold($font-size2);
+  margin-bottom: 5px;
+  span.required {
+    color: red;
+    margin-left: 2px;
+  }
+  span.edited {
+    @include neue-bold($font-size1);
+    color: $edited-color;
+    margin-left: 5px;
+  }
+  svg {
+    margin-left: 5px;
+  }
+}
+
+.placeholder {
+  @include neue-regular($font-size3);
+  color: $placeholder-color;
+  margin-bottom: 8px;
+}
+
+.item_value {
+  padding-top: 5px;
+  display: inline-block;
+  @include neue-regular($font-size3);
+  color: $colors-neutral-1000;
+  &.None {
+    font-style: italic;
+  }
+  pre {
+    margin: 0;
+  }
+}
+
+.success_message {
+  div:first-child {
+    font-weight: 700;
+    font-size: 14px;
+  }
+}
+.field_info {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  margin-top: 12px;
+  z-index: 10;
+  padding: 0;
+  & div {
+    z-index: 1;
+    background-color: white;
+  }
+  & > div:nth-child(2) {
+    width: 284px;
+    padding: 10px;
+  }
+  & :global(.fa-lg) {
+    font-size: 14px;
+  }
+  & :global(.variable-md) {
+    & p {
+      white-space: pre-line;
+      @include neue-regular(12px);
+      margin-bottom: 20px;
+      line-height: 21px;
+    }
+    & h1 {
+      @include neue-bold(12px);
+      margin-bottom: 20px;
+    }
+    & a {
+      @include neue-regular(12px);
+    }
+  }
+  :global(.Int-CalloutMenu-colorBar:before) {
+    margin-top: 26.2rem;
+    margin-left: 1rem;
+    display: none;
+  }
+}
